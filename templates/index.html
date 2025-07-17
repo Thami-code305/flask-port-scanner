@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Port Scanner</title>
+  <style>body {max-width:600px;margin:auto;padding:20px;font-family:sans-serif;}pre{background:#eee;padding:10px;}</style>
+</head>
+<body>
+<h1>Home Port Scanner</h1>
+<form method="POST">
+  <label>Target (IP or Domain):</label><br>
+  <input type="text" name="target" required><br>
+  <label>Start Port:</label><br>
+  <input type="number" name="start_port" value="20" required><br>
+  <label>End Port:</label><br>
+  <input type="number" name="end_port" value="1024" required><br><br>
+  <button type="submit">Scan</button>
+</form>
+{% if error %}
+  <p style="color:red;">{{ error }}</p>
+{% endif %}
+{% if results is not none %}
+  <h2>Results for {{ target }} ({{ ip }})</h2>
+  {% if results %}
+    <pre>PORT     SERVICE
+{% for port, service in results %}
+{{ "%-8s %-15s"|format(port, service) }}
+{% endfor %}</pre>
+  {% else %}
+    <p>No open ports found.</p>
+  {% endif %}
+{% endif %}
+</body>
+</html>
