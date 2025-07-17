@@ -32,13 +32,23 @@
 
       <button type="submit">Scan Now</button>
     </form>
+     {% if error %}
+  <div style="color: red;">
+    <strong>{{ error }}</strong>
+  </div>
+{% endif %}
 
-    {% if results %}
-      <div id="results">
-        <h2>Scan Results</h2>
-        <pre>{{ results }}</pre>
-      </div>
-    {% endif %}
+{% if results %}
+  <div id="results">
+    <h2>Scan Results for {{ target }} (IP: {{ ip }})</h2>
+    <ul>
+      {% for port, service in results %}
+        <li>Port {{ port }}: {{ service }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
   </main>
 </body>
 </html>
