@@ -16,7 +16,7 @@
   </header>
 
   <main>
-    <form action="/scan" method="post">
+    <form action="/" method="post">
       <label for="target">Enter IP or Domain:</label>
       <input type="text" id="target" name="target" required placeholder="e.g. 192.168.1.1 or example.com">
 
@@ -33,10 +33,10 @@
       <button type="submit">Scan Now</button>
     </form>
 
-    {% if result %}
+    {% if results %}
       <div id="results">
         <h2>Scan Results</h2>
-        <pre>{{ result }}</pre>
+        <pre>{{ results }}</pre>
       </div>
     {% endif %}
   </main>
