@@ -38,6 +38,8 @@ def home():
             else:
                 open_ports, ip = data
                 results = [(p, ports_and_services.get(p, "unknown")) for p in open_ports]
+          print("Resolved IP address: ", ip)
+        print("Open ports found:", open_ports)
     return render_template("index.html", target=target, results=results, ip=ip, error=error)
 
 if __name__ == "__main__":
