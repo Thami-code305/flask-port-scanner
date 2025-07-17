@@ -26,7 +26,7 @@ Azania Network Security Scanner is a lightweight, user-friendly web app designed
 ## 📦 Installation (Dev)
 
 ```bash
-git clone https://github.com/Thami-code305/home-port-scanner2.git
+git clone https://github.com/Thami-code305/flask-port-scanner.git
 cd home-port-scanner2
 python3 -m venv env
 source env/bin/activate
