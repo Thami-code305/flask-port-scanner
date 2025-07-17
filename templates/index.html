@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Azania Port Scanner</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/Syf82YF/azania-logo.png" alt="Azania Logo" class="logo">
+    <h1>
+      Azania<br>
+      <span>Home Port Scanner</span>
+    </h1>
+  </header>
+
+  <main>
+    <form action="/scan" method="post">
+      <label for="target">Enter IP or Domain:</label>
+      <input type="text" id="target" name="target" required placeholder="e.g. 192.168.1.1 or example.com">
+
+      <label for="start_port">Start Port:</label>
+      <input type="number" id="start_port" name="start_port" min="1" max="65535" required value="20">
+
+      <label for="end_port">End Port:</label>
+      <input type="number" id="end_port" name="end_port" min="1" max="65535" required value="80">
+
+      <label>
+        <input type="checkbox" name="verbose" value="true"> Verbose Output
+      </label>
+
+      <button type="submit">Scan Now</button>
+    </form>
+
+    {% if result %}
+      <div id="results">
+        <h2>Scan Results</h2>
+        <pre>{{ result }}</pre>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>
