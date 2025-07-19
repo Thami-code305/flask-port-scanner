@@ -18,7 +18,7 @@ def get_open_ports(target, start_port, end_port):
         sock.close()
     return (open_ports, ip), None
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/scan", methods=["GET", "POST"])
 def home():
     error = None
     results = None
